@@ -35,7 +35,7 @@ public class ArrayTest {
 		for (int zahl : zahlen) {
 			System.out.println(zahl);
 		}
-		String[] tiere = {"Hund", "Katze", "Maus"};
+		//String[] tiere = {"Hund", "Katze", "Maus"};
 	}
 }
 
