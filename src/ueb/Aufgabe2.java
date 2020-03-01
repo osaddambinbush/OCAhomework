@@ -21,23 +21,34 @@ public class Aufgabe2 {
 					doppelt = false;
 					if (zahlen2[j] == zahlen1[i]) {
 						doppelt = true;
+						System.out.println("*************TREFFER****************");
+						System.out.println("Array 1: " + zahlen1[i]);
+						System.out.println("Array 2: " + zahlen2[j]);
+						System.out.println("*************TREFFER****************");
+						
 						break schleife1;
+						
+					}else {
+						System.out.println("*****************************");
+						System.out.println("Array 1: " + zahlen1[i]);
+						System.out.println("Array 2: " + zahlen2[j]);
+						System.out.println("*****************************");
 					}
 
 				}
 			} while (doppelt);
 
 		}
-		for (int array1 : zahlen1) {
-
-			for (int array2 : zahlen2) {
-				System.out.println("*****************************");
-				System.out.println("Array 1: " + array1);
-				System.out.println("Array 2: " + array2);
-				System.out.println("*****************************");
-			}
-
-		}
+//		for (int array1 : zahlen1) {
+//
+//			for (int array2 : zahlen2) {
+//				System.out.println("*****************************");
+//				System.out.println("Array 1: " + array1);
+//				System.out.println("Array 2: " + array2);
+//				System.out.println("*****************************");
+//			}
+//
+//		}
 
 	}
 
