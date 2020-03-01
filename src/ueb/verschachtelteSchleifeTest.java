@@ -12,7 +12,7 @@ public class verschachtelteSchleifeTest {
 					System.out.println(ausgabe);
 					
 				}
-			System.out.println(ausgabe);
+			//System.out.println(ausgabe);
 			} 
 		
 	}

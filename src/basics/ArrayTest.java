@@ -36,6 +36,7 @@ public class ArrayTest {
 			System.out.println(zahl);
 		}
 		//String[] tiere = {"Hund", "Katze", "Maus"};
+		System.out.println("*****************************");
 	}
 }
 
