@@ -4,26 +4,60 @@ public class StringNameUebung {
 
 	public static void main(String[] args) {
 
-		String[] komplettName = new String[6];
-		komplettName[0] = "M�ller, Klaus";
-		komplettName[1] = "Meier, Klara";
-		komplettName[2] = "Schulze,Rita";
-		komplettName[3] = "Schmitz, Hubert";
-		komplettName[4] = "Kruse, Sonja";
-		komplettName[5] = " Schmidt, Heinrich";
+		 String[] komplettName = { 
+			        "  d   ,   Beispiel,   Ein  ", 
+			        "m, Müller, Klaus", 
+			        "w, Meier,   Klara", 
+			        "w, Schulze,Rita", 
+			        "m, Schmitz, Hubert",
+			        "m, Kruse, Sonja", 
+			        "m, Schmidt,   Heinrich   " 
+			        };
+			    int indexKomma1, indexKomma2;
+			    String vorName, nachName, sex, hi1, hi2, hi3;
 
-		for (int i = 0; i < komplettName.length; i++) {
-			int istKomma = 0;
-			String nachName = "";
+			    for (int i = 0; i < komplettName.length; i++) {
+			      indexKomma1 = komplettName[i].indexOf(",");
+			      indexKomma2 = komplettName[i].indexOf(",", indexKomma1 + 1);
 
-			istKomma = komplettName[i].indexOf(",");
-			nachName = komplettName[i].substring(0, istKomma);
-			String vorName = komplettName[i].substring(istKomma+1);
+			      sex = komplettName[i].substring(0, indexKomma1).trim();
+			      nachName = komplettName[i].substring(indexKomma1 + 1, indexKomma2).trim();
+			      vorName = komplettName[i].substring(indexKomma2 + 1).trim();
 
-			System.out.println("Hallo " + vorName.trim() + " " + nachName.trim());
+//			      ~~~~~~~  Verson 1  (ternär) ~~~~~~~
+			      hi1 = "Hallo" + (sex.equals("w") ? " Frau " : sex.equals("m") ? " Herr " : " . ");
+			      System.out.println("1: " + hi1 + vorName + " " + nachName);
 
-		}
+//			      ~~~~~~~  Verson 2  if() ~~~~~~~
+			      if (sex.equals("w")) {
+			        hi2 = " Frau ";
+			      } else if (sex.equals("m")) {
+			        hi2 = " Herr ";
+			      } else {
+			        hi2 = " .. ";
+			      }
+			      hi2 = "Hallo" + hi2;
+			      System.out.println("2: " + hi2 + vorName + " " + nachName);
 
-	}
+//			      ~~~~~~~  Verson 3  switch-case ~~~~~~~
+			      switch (sex) {
+			      case "w":
+			        hi3 = " Frau ";
+			        break;
+			      case "m":
+			        hi3 = " Herr ";
+			        break;
+
+			      default:
+			        hi3 = " ... ";
+			        break;
+			      }
+			      hi3 = "Hallo" + hi3;
+			      System.out.println("3: " + hi3 + vorName + " " + nachName + "\n");
+			    }
+		
 
 }
+}
+
+	
