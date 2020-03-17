@@ -34,7 +34,6 @@ public class BitcoinKonto {
 				if (i > 0 && i % 12 == 0 && i != 34) {
 
 					bitCoin += "\n";
-
 				}
 			}
 
