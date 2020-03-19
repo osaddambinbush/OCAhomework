@@ -27,7 +27,7 @@ public class BitcoinKonto {
 				char zeichen = (char) randomWert;
 				bitCoin += zeichen;
 				i++;
-				if (i > 0 && i % 4 == 0 && i != 34 && i % 12 != 0) {
+			if (i > 0 && i % 4 == 0 && i != 34 && i % 12 != 0) {
 					bitCoin += "-";
 
 				}
@@ -35,8 +35,8 @@ public class BitcoinKonto {
 
 					bitCoin += "\n";
 				}
+			
 			}
-
 		}
 		System.out.print(bitCoin);
 	}
