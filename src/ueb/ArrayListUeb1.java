@@ -15,7 +15,6 @@ public class ArrayListUeb1 {
 			System.out.println(liste.get(i));
 		}
 		
-		
 	}
 
 }
