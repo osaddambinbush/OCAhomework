@@ -15,7 +15,7 @@ public class AlInt {
 		birds.add("Quetzal");
 		birds.add("Quetzal");
 		if (birds.size() > 0) {
-			birds.removeAll(Collections.singleton("hawk")); // OCP
+			birds.removeAll(Collections.singleton("Quetzal")); // OCP
 			System.out.println(birds);
 
 		}
