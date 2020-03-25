@@ -1,4 +1,4 @@
-package ueb;
+package uebungen;
 
 import java.util.Random;
 
