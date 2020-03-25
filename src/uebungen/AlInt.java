@@ -9,11 +9,11 @@ public class AlInt {
 
 		ArrayList<String> birds = new ArrayList<String>();
 
-		birds.add("hawk"); // Falke
-		birds.add("hawk");
-		birds.add("robin");
-		birds.add("hawk");
-		birds.add("hawk");
+		birds.add("Quetzal"); 
+		birds.add("Quetzal");
+		birds.add("Tucan");
+		birds.add("Quetzal");
+		birds.add("Quetzal");
 		if (birds.size() > 0) {
 			birds.removeAll(Collections.singleton("hawk")); // OCP
 			System.out.println(birds);
