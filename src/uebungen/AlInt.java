@@ -9,16 +9,19 @@ public class AlInt {
 
 		ArrayList<String> birds = new ArrayList<String>();
 
-		birds.add("Quetzal"); 
+		birds.add("Quetzal"+ " Hallo hab removeAll ausgespielt :D"); 
 		birds.add("Quetzal");
 		birds.add("Tucan");
 		birds.add("Quetzal");
 		birds.add("Quetzal");
-		if (birds.size() > 0) {
-			birds.removeAll(Collections.singleton("Quetzal"));
-			System.out.println(birds);
-
-		}
+		birds.add(null);
+		birds.add("");
+		birds.add(new String("Phoenix"));
+		
+		
+		birds.removeAll(Collections.singleton("Quetzal"));
+		System.out.println(birds);
+		
 		{
 			ArrayList<Integer> al1 = new ArrayList<Integer>();
 			al1.add(1);
@@ -36,6 +39,14 @@ public class AlInt {
 			System.out.println(al1);
 			
 			System.out.println(al1.contains(al2));
+				
+			
+		}
+		{
+			ArrayList<Integer> list = new ArrayList<Integer>();
+			list.add(10);
+			list.add(14);
+			for(int x : list) System.out.println(x + ", ");
 				
 			
 		}
