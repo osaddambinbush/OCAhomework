@@ -1,0 +1,27 @@
+1. MySQL Server herunterladen und installieren. https://mariadb.com/downloads/
+2. HeidiSQL APP öffnen und root konto einrichten in meinem bsp habe ich das Passwort "toor" genommen.
+3. Anschließend Benutzername "root" und pw "toor" eingeben und unten auf öffnen klicken.
+4. In dem linken Fenster mit der rechten Maustaste klicken und "neu erstellen" -> "Datenbank" wählen.
+5. unter Name test angeben. Fertig!
+
+Alternative MySQL Client (MariaDB 10.4 (x64)) (CMD) öffnen, Passwort "toor" eingeben, "create database test" eingeben und "STRG+C" drücken. Fertig!
+
+Eclipse:
+Help -> Install new Software -> "Version im Dropdown Menu auswählen" -> Harken bei "Database Development setzen" ->
+next um installation durchzuführen -> Neustart der IDE ausführen.
+
+Zustätzlich mysql connector runterladen https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.16 
+und gut Sichtbar im Java Ordner Speichern.
+
+Eclipse:
+Window -> Perspective -> Open Perspective -> other... -> Database Development -> New Connection Profile (Symbol im Reiter) ->
+MySQL -> next -> Drivers "Uhr" klicken -> mysql-connector-java-8.0.1.6.jar über "Add JAR/Zip..."
+
+Benutzerdaten anpassen
+Database: test
+URL: jdbc:mysql://localhost:3306/test
+user name: root
+Passwort: toor
+harken bei save password machen.
+Unten auf test connection klicken, wenn "Ping succeeded!" erscheind wurde eine DB Verbindung hergestellt.
+
