@@ -2,6 +2,7 @@ package project;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 import javax.swing.JOptionPane;
 
@@ -33,12 +34,15 @@ public class JavaSearch {
 	}
 
 	static void search() {
-		String s = JOptionPane.showInputDialog(null, "tipp ma ein watt du suchst: ", "Java-Projekt - Suchfunktion ",
+		String dataType= ".java";
+		String searchString = JOptionPane.showInputDialog(null, "tipp ma ein watt du suchst: ", "Java-Projekt - Suchfunktion ",
 				JOptionPane.PLAIN_MESSAGE);
-		if (dataPool != null && s != null) {
+		if (dataPool != null && searchString != null) {
 			for (File element : dataPool) {
-				if (element.getName().contains(s) && element.toString().endsWith(".java")) {
-					System.out.println(element);
+				Predicate<String> filter = t -> element.getName().contains(searchString) && element.toString().endsWith(dataType);
+				{
+					if (filter.test(searchString))
+						System.out.println(element);
 				}
 			}
 		}
