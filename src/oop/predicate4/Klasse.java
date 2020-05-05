@@ -14,6 +14,7 @@ public class Klasse {
 		for (Integer n : numList) {
 			if (o.test(n) == true) {
 				System.out.println(n);
+				
 			}
 
 		}
