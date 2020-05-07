@@ -25,3 +25,9 @@ Passwort: toor
 harken bei save password machen.
 Unten auf test connection klicken, wenn "Ping succeeded!" erscheind wurde eine DB Verbindung hergestellt.
 
+zusätzlich  im Eclipse:
+
+Project -> Properties -> JavaBuildPath -> Add -> Connectivity Driver Definition -> MySQL JDBC Driver (versichern ob mysql-connector-java 8.0.1.6.jar eingbunden ist -> Finish
+
+
+
