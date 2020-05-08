@@ -6,10 +6,11 @@ public class Ausgabe {
 
 	public static void main(String[] args) throws SQLException {
 		try {
+			while(true) {
 			DB.dbCon();
 			Insert.insert();
 			DB.dbCon();
-			Select.select();
+			Select.select();}
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 

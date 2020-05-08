@@ -13,16 +13,16 @@ public class Insert extends DB {
 		try {
 			String s = JOptionPane.showInputDialog(null, "Vorname: ", "SQL - Injector ",
 					JOptionPane.PLAIN_MESSAGE);
-			if (s != null) {
+			if (s != null && s !="") {
 			String s2 = JOptionPane.showInputDialog(null, "Nachname: ", "SQL - Injector ",
 					JOptionPane.PLAIN_MESSAGE);
-			if (s2 != null) {
+			if (s2 != null &&s2 != "") {
 				String vorname = s, nachname = s2;
 			PreparedStatement preparedStatement = connection.prepareStatement(sqlInsertString);
 			preparedStatement.setString(1, vorname);
 			preparedStatement.setString(2, nachname);
 			preparedStatement.executeUpdate();
-			connection.close();}}
+			connection.close();}else System.exit(0);}else System.exit(0);
 
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
