@@ -16,7 +16,6 @@ public class DB extends Ausgabe {
 
 		try {
 			connection = DriverManager.getConnection(connectionCommand);
-			// dbCon();
 			return connection;
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
