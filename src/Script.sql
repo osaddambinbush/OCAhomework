@@ -1,4 +1,4 @@
---<ScriptOptions statementTerminator=";"/>
+
 
 
 DROP DATABASE if EXISTS test1;

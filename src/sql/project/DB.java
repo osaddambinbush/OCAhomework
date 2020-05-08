@@ -19,7 +19,6 @@ public class DB extends Ausgabe {
 			return connection;
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
-			System.out.println("false");
 			return null;
 		}
 
