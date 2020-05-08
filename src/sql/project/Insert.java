@@ -13,10 +13,10 @@ public class Insert extends DB {
 		try {
 			String s = JOptionPane.showInputDialog(null, "Vorname: ", "SQL - Injector ",
 					JOptionPane.PLAIN_MESSAGE);
-			if (s != null && s !="") {
+			if (s != null &&s.contains(" ")==false) {
 			String s2 = JOptionPane.showInputDialog(null, "Nachname: ", "SQL - Injector ",
 					JOptionPane.PLAIN_MESSAGE);
-			if (s2 != null &&s2 != "") {
+			if (s2 != null &&s2.contains(" ")==false) {
 				String vorname = s, nachname = s2;
 			PreparedStatement preparedStatement = connection.prepareStatement(sqlInsertString);
 			preparedStatement.setString(1, vorname);
