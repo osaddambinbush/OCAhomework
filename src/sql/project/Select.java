@@ -14,7 +14,7 @@ public class Select extends DB {
 			PreparedStatement preparedStatement = connection.prepareStatement(sqlInsertString);
 			ResultSet rs = preparedStatement.executeQuery();
 			while (rs.next()) {
-				System.out.println(rs.getString(1) + ", " + rs.getString("Nachname"));
+				System.out.println(rs.getString("Vorname") + ", " + rs.getString("Nachname"));
 			}
 			connection.close();
 		} catch (Exception ex) {
