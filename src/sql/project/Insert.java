@@ -11,13 +11,12 @@ public class Insert extends DB {
 		String sqlInsertString = "INSERT INTO test1 values (?, ?)";
 		
 		try {
-			String s = JOptionPane.showInputDialog(null, "Vorname: ", "SQL - Injector ",
+			String vorname = JOptionPane.showInputDialog(null, "Vorname: ", "SQL - Injector ",
 					JOptionPane.PLAIN_MESSAGE);
-			if (s != null &&s.contains(" ")==false) {
-			String s2 = JOptionPane.showInputDialog(null, "Nachname: ", "SQL - Injector ",
+			if (vorname != null &&vorname.contains(" ")==false && vorname.isEmpty()==false) {
+			String nachname = JOptionPane.showInputDialog(null, "Nachname: ", "SQL - Injector ",
 					JOptionPane.PLAIN_MESSAGE);
-			if (s2 != null &&s2.contains(" ")==false) {
-				String vorname = s, nachname = s2;
+			if (nachname != null &&nachname.contains(" ")==false && vorname.isEmpty()==false) {
 			PreparedStatement preparedStatement = connection.prepareStatement(sqlInsertString);
 			preparedStatement.setString(1, vorname);
 			preparedStatement.setString(2, nachname);
