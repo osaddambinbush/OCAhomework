@@ -4,6 +4,7 @@ public enum Monat {
 	JAN, FEB(28), MAR, APR(30), MAI, JUN(30), JUL, AUG, SEP(30), OKT, NOV(30), DEZ;
 
 	private final int numberOfDays;
+	
 
 	Monat(int numberOfDays) {
 		this.numberOfDays = numberOfDays;

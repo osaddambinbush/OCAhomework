@@ -1,6 +1,5 @@
 package _06_03;
 
-
 /**
  * 
  * Enumeration (Aufzï¿½hlung)
@@ -24,14 +23,15 @@ package _06_03;
  * 
  * TODO: ->Definiere folgende Methoden:
  * 
- * 1. asISODate Eine Textuelle Darstellung YYYY-MM-DD soll zurï¿½ck gegeben werden
- * 2. asDEDate Eine textuelle Darstellung DD.MM.YYYY soll zurï¿½ck gegeben werden
+ * 1. asISODate Eine Textuelle Darstellung YYYY-MM-DD soll zurï¿½ck gegeben
+ * werden 2. asDEDate Eine textuelle Darstellung DD.MM.YYYY soll zurï¿½ck
+ * gegeben werden
  * 
- * 3. asUKDate Eine testuelle Darstellung MM-DD-YYYY soll zurï¿½ck gegeben werden
- * ->Das Enum Datum soll angepasst werden. -Anzahl von Tagen im Februar ist ja
- * davon abhï¿½ngig ob Schaltjahr vorliegt. Dies soll irgendwie berï¿½cksichtigt
- * werden ->Die Klasse Datum soll auch angepasst werden: Der Konstruktor soll
- * dafï¿½r sorgen, dass immer gï¿½ltiges Datum Objekt entsteht:
+ * 3. asUKDate Eine testuelle Darstellung MM-DD-YYYY soll zurï¿½ck gegeben
+ * werden ->Das Enum Datum soll angepasst werden. -Anzahl von Tagen im Februar
+ * ist ja davon abhï¿½ngig ob Schaltjahr vorliegt. Dies soll irgendwie
+ * berï¿½cksichtigt werden ->Die Klasse Datum soll auch angepasst werden: Der
+ * Konstruktor soll dafï¿½r sorgen, dass immer gï¿½ltiges Datum Objekt entsteht:
  * 
  * Datum(31, Monat.APR, 2020) -> ist nicht valid ->Man konnte in dem Fall eine
  * Fehlerausgabe machen und Standard Datum (1.1.1970) erzeugen Welche Methode
@@ -44,46 +44,47 @@ public class Datum {
 	private Monat monat;
 	private int jahr;
 
-	public String asISODate() {
-		return"ISO Date= " + jahr + "-" + (monat.ordinal() + 1) + "-" + tag;
+	public Datum(int tag, Monat monat, int jahr) {
+		super();
+		try {
+			if (!(tag > 0 && tag <= monat.getNumberOfDays(isLeapYear(jahr)))) {
+				System.err.println("Format passt nicht, default Datum erzeugt");
+				throw new Exception();
 			}
 
+			else {
+				this.tag = tag;
+				this.monat = monat;
+				this.jahr = jahr;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+	}
+
+	public static void main(String[] args) {
+
+		Datum b = new Datum(29, Monat.FEB, 2020);
+		b.asISODate();
+		b.asDEDate();
+		b.asUKDate();
+		System.out.println(b.asDEDate());
+		System.out.println(b.asUKDate());
+		System.out.println(b.asISODate());
+		System.out.println(b.format(Culture.DE));
+	}
+
+	public String asISODate() {
+		return jahr + "-" + toStr((monat.ordinal() + 1)) + "-" + toStr(tag);
+	}
+
 	public String asDEDate() {
-				return "DE Date= " + tag + "." + (monat.ordinal() + 1) + "." + jahr;
+		return "DE Date= " +  toStr(tag) + "." + toStr((monat.ordinal() + 1)) + "." + jahr;
 	}
 
 	public String asUKDate() {
-			return "UK Date= " + (this.monat.ordinal() + 1) + "-" + this.tag + "-" + this.jahr;
-			}
-
-	public static void main(String[] args) {
-		
-	
-	Datum b = new Datum(29, Monat.FEB, 2020);
-
-	b.asISODate();
-	b.asDEDate();
-	b.asUKDate();
-	System.out.println(b.asDEDate());
-	System.out.println(b.asUKDate());
-	System.out.println(b.asISODate());
-}
-
-	public Datum(int tag, Monat monat, int jahr) {
-		super();
-try {
-		if (!(tag > 0 && tag <= monat.getNumberOfDays(isLeapYear(jahr)))) {
-			System.err.println("Format passt nicht, default Datum erzeugt");
-			throw new Exception();
-		}
-
-		else {
-			this.tag = tag;
-			this.monat = monat;
-			this.jahr = jahr;
-		}}catch(Exception e) {
-			System.out.println(e);}
-
+		return "UK Date= " + toStr((monat.ordinal() + 1)) + "-" +  toStr(tag) + "-" + this.jahr;
 	}
 
 	private boolean isLeapYear(int jahr) {
@@ -114,7 +115,8 @@ try {
 	}
 
 	public void setJahr(int jahr) {
-		this.jahr = jahr;
+		if (tag <= monat.getNumberOfDays(isLeapYear(getJahr())))
+			this.jahr = jahr;
 	}
 
 	@Override
@@ -150,4 +152,24 @@ try {
 		return "Datum [tag=" + tag + ", monat=" + monat + ", jahr=" + jahr + "]";
 	}
 
+	public String format(Culture c) {
+		switch (c) {
+		case DE:
+			return asDEDate();
+		case UK:
+			return asUKDate();
+
+		default:
+			return asISODate();
+		}
+
+	}
+
+	private String toStr(int n) {
+		return (n >= 10) ? "" + n : "0" + n;
+	}
+
+	public static String date_formatted(Datum d) {
+		return d.jahr + "-" + d.toStr((d.monat.ordinal() + 1)) + "-" + d.toStr(d.tag);
+	}
 }
