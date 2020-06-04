@@ -65,7 +65,7 @@ public class Datum {
 
 	public static void main(String[] args) {
 
-		Datum b = new Datum(29, Monat.FEB, 2020);
+		Datum b = new Datum(22, Monat.FEB, -2);
 		b.asISODate();
 		b.asDEDate();
 		b.asUKDate();
@@ -76,15 +76,15 @@ public class Datum {
 	}
 
 	public String asISODate() {
-		return jahr + "-" + toStr((monat.ordinal() + 1)) + "-" + toStr(tag);
+		return jahrStr(jahr) + "-" + toStr((monat.ordinal() + 1)) + "-" + toStr(tag);
 	}
 
 	public String asDEDate() {
-		return "DE Date= " +  toStr(tag) + "." + toStr((monat.ordinal() + 1)) + "." + jahr;
+		return "DE Date= " +  toStr(tag) + "." + toStr((monat.ordinal() + 1)) + "." + jahrStr(jahr);
 	}
 
 	public String asUKDate() {
-		return "UK Date= " + toStr((monat.ordinal() + 1)) + "-" +  toStr(tag) + "-" + this.jahr;
+		return "UK Date= " + toStr((monat.ordinal() + 1)) + "-" +  toStr(tag) + "-" + jahrStr(jahr);
 	}
 
 	private boolean isLeapYear(int jahr) {
@@ -168,6 +168,10 @@ public class Datum {
 	private String toStr(int n) {
 		return (n >= 10) ? "" + n : "0" + n;
 	}
+	private String jahrStr(Integer n) {
+		return (n>=0&&n<=9)? "000"+n: (n<=0&&n>=-9)? "-000"+n.toString().substring(1):(n>=0&&n <= 99) ? "00" + n :(n<=0&&n >= -99) ? "-00" + n.toString().substring(1) :(n>=0&&n<=999 )?"0"+n:(n<=0&&n>=-999 )?"-0"+n.toString().substring(1): "" + n ;
+	}
+
 
 	public static String date_formatted(Datum d) {
 		return d.jahr + "-" + d.toStr((d.monat.ordinal() + 1)) + "-" + d.toStr(d.tag);
