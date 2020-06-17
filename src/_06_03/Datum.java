@@ -65,13 +65,13 @@ public class Datum {
 
 	public static void main(String[] args) {
 
-		Datum b = new Datum(22, Monat.FEB, -2);
-		b.asISODate();
+		Datum b = new Datum(-22, Monat.FEB, -122);
+		//b.asISODate();
 		b.asDEDate();
 		b.asUKDate();
 		System.out.println(b.asDEDate());
 		System.out.println(b.asUKDate());
-		System.out.println(b.asISODate());
+		//System.out.println(b.asISODate());
 		System.out.println(b.format(Culture.DE));
 	}
 
@@ -169,7 +169,8 @@ public class Datum {
 		return (n >= 10) ? "" + n : "0" + n;
 	}
 	private String jahrStr(Integer n) {
-		return (n>=0&&n<=9)? "000"+n: (n<=0&&n>=-9)? "-000"+n.toString().substring(1):(n>=0&&n <= 99) ? "00" + n :(n<=0&&n >= -99) ? "-00" + n.toString().substring(1) :(n>=0&&n<=999 )?"0"+n:(n<=0&&n>=-999 )?"-0"+n.toString().substring(1): "" + n ;
+		return (n>=0&&n<=9)? "000"+n: (n<=0&&n>=-9)? "-000"+n.toString().substring(1):(n>=0&&n <= 99) ?
+				"00" + n :(n<=0&&n >= -99) ? "-00" + n.toString().substring(1) :(n>=0&&n<=999 )?"0"+n:(n<=0&&n>=-999 )?"-0"+n.toString().substring(1): "" + n ;
 	}
 
 
